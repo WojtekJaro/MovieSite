@@ -27,6 +27,10 @@ const pages = [
 	{
 		label: 'Seriale',
 		href: '/SerialPage',
+	},
+	{
+		label: 'Aktorzy',
+		href: '/ActorsPage',
 	}
 ]
 

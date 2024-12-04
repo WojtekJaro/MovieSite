@@ -5,7 +5,7 @@ import MainTemplate from '../template/MainTemplate'
 const SerialPage = () => {
 	return (
 		<MainTemplate>
-			<Box> Seriale </Box>
+			<Box mt='90px'> <h1>Seriale</h1> </Box>
 		</MainTemplate>
 	)
 }
