@@ -15,11 +15,12 @@ const useFetchMovies = query => {
 				`https://api.themoviedb.org/3/movie/${query}?api_key=${process.env.REACT_APP_API_KEY}`
 			)
 			setData(response.data.results)
+			
 		} catch (error) {
 			setError('wystąpil bląd')
 		}
 	}
-  
+
 
 	return { data, loading, error }
 }
