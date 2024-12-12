@@ -1,4 +1,3 @@
-import './App.css'
 import React from 'react'
 
 import HomePage from './pages/HomePage'
@@ -14,6 +13,7 @@ const App = () => {
 				<Route path='/MoviePage' element={<MoviePage />} />
 				<Route path='/SerialPage' element={<SerialPage />} />
 				<Route path='/ActorsPage' element={<ActorsPage />} />
+				<Route path="/movie/:url" element={<MoviePage/>}/>
 			</Routes>
 		</BrowserRouter>
 	)

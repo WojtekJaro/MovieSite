@@ -23,7 +23,7 @@ const HomePage = () => {
 	return (
 		<MainTemplate>
 			<Header />
-			<Movies title="Popularne" items={popular.data}></Movies>
+			<Movies autoplay title="Popularne" items={popular.data}></Movies>
 			<Movies title="Najwyże oceniane" items={topRated.data}></Movies>
 			<Movies title= "Nadchodzące" items={upcoming.data}></Movies>
 		</MainTemplate>

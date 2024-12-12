@@ -1,16 +1,81 @@
-import { Box, Typography } from '@mui/material'
 import React from 'react'
-
-const Movies = ({items, title }) => {
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
+import { Link } from 'react-router-dom'
+import { Box, Typography } from '@mui/material'
+import { Image } from '@mui/icons-material'
+const Movies = ({ items, title, autoplay }) => {
 	console.log(items)
 	if (items.length === 0) {
 		return
 	}
+	let autoplayProps = {
+		autoplay: {
+			delay: 1500,
+		},
+	}
+	if (!autoplay) {
+		autoplayProps = null
+	}
 	return (
 		<Box my={5} maxW={'8xl'} mx='auto' px={{ base: 4 }}>
 			<Typography mb={4} mt={5} as='h2' size='lg' noOfLines={1}>
-                {title}
+				{title}
 			</Typography>
+
+			<Box position='relative' zIndex='0'>
+				<Swiper
+					slidesPerView={1.6}
+					spaceBetween={15}
+					loop={true}
+					{...autoplayProps}
+					speed={1500}
+					modules={[Autoplay]}
+					breakpoints={{
+						
+						576: {
+							slidesPerView: 2.5,
+						},
+						768: {
+							slidesPerView: 3.2,
+						},
+						992: {
+							slidesPerView: 4.5,
+						},
+						1200: {
+							slidesPerView: 5.4,
+						},
+						
+					}}>
+					{items.map(item => (
+						<SwiperSlide key={item.id}>
+							<Link to={`/movie/${item.title.replaceAll(' ', '-').toLowerCase()}-${item.id}`}>
+								<div position={'relative'} bg='white' padding={5}>
+									<img borderRadius={15} src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt='Dan Abramov' />
+
+									<Typography mt={7} as='h2' size='sm' noOfLines={1}>
+										{item.title}
+									</Typography>
+									<Typography color='gray.400' fontSize='12px'>
+										{item.release_date}
+									</Typography>
+								</div>
+							</Link>
+						</SwiperSlide>
+					))}
+				</Swiper>
+				<Box
+					bg='white'
+					width='40px'
+					height='110%'
+					position='absolute'
+					top='-20px'
+					right={-50}
+					zIndex={1}
+					boxShadow='0 0 35px 40px white'
+				/>{' '}
+			</Box>
 		</Box>
 	)
 }
