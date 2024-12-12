@@ -1,13 +1,13 @@
 import React from 'react'
 import MainTemplate from '../template/MainTemplate'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 
 const ActorsPage = () => {
 	return (
 		<MainTemplate>
-			<Box mt='90px'>
+			<Container sx={{pt:'70px'}}>
 				<h1>Aktorzy</h1>{' '}
-			</Box>
+			</Container>
 		</MainTemplate>
 	)
 }

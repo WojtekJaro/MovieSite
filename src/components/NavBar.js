@@ -12,8 +12,7 @@ import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
-import { Link, Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
-
+import { Link, Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom'
 
 const pages = [
 	{
@@ -22,7 +21,7 @@ const pages = [
 	},
 	{
 		label: 'Filmy',
-		href: '/MoviePage',
+		href: '/MoviesPage',
 	},
 	{
 		label: 'Seriale',
@@ -31,11 +30,8 @@ const pages = [
 	{
 		label: 'Aktorzy',
 		href: '/ActorsPage',
-	}
+	},
 ]
-
-
-
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 const NavBar = () => {
@@ -58,14 +54,14 @@ const NavBar = () => {
 	}
 	return (
 		<AppBar position='fixed'>
-			<Container maxWidth='lg'>
+			<Container maxWidth='lg' sx={{ height: '70px' }}>
 				<Toolbar disableGutters>
 					<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-					<Typography 																					//LOGO DESKTOP
+					<Typography //LOGO DESKTOP
 						variant='h6'
 						noWrap
 						component={RouterLink}
-						to={"/"}
+						to={'/'}
 						sx={{
 							mr: 2,
 							display: { xs: 'none', md: 'flex' },
@@ -73,16 +69,17 @@ const NavBar = () => {
 							fontWeight: 700,
 							letterSpacing: '.3rem',
 							color: 'inherit',
+
 							textDecoration: 'none',
 						}}>
 						FILMY
 					</Typography>
 
-					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>									
-						<IconButton																				
+					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+						<IconButton
 							size='large'
 							aria-label='account of current user'
-							aria-controls='menu-appbar' 
+							aria-controls='menu-appbar'
 							aria-haspopup='true'
 							onClick={handleOpenNavMenu}
 							color='inherit'>
@@ -106,18 +103,16 @@ const NavBar = () => {
 							{pages.map(page => (
 								<MenuItem component={RouterLink} to={page.href} key={page.href} onClick={handleCloseNavMenu}>
 									<Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
-								</MenuItem >
+								</MenuItem>
 							))}
 						</Menu>
-					</Box>																									
+					</Box>
 					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 					<Typography
-						variant='h5'
+						variant='h6'
 						noWrap
 						component={RouterLink}
-						to={"/"}
-						
-						
+						to={'/'}
 						sx={{
 							mr: 2,
 							display: { xs: 'flex', md: 'none' },
@@ -128,16 +123,20 @@ const NavBar = () => {
 							color: 'inherit',
 							textDecoration: 'none',
 						}}>
-							Filmy
+						Filmy
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map(page => (
-							<Button component={RouterLink} to={page.href} key={page.href} sx={{ my: 2, color: 'white', display: 'block' } }>
-								{page.label} 
+							<Button
+								component={RouterLink}
+								to={page.href}
+								key={page.href}
+								sx={{ my: 2, color: 'white', display: 'block' }}>
+								{page.label}
 							</Button>
 						))}
 					</Box>
-					<Box sx={{ flexGrow: 0 }}>   
+					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title='Open settings'>
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 								<Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />

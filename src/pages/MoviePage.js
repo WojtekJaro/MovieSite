@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MainTemplate from '../template/MainTemplate'
-import { Box, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
@@ -8,7 +8,7 @@ const MoviePage = () => {
 	const params = useParams()
 	console.log(params)
 	const itemid = params.url.replace(/\D/g, '')
-	console.log(itemid)
+
 	const [movie, setMovie] = useState()
 	const [colors, setColors] = useState([])
 
@@ -36,9 +36,9 @@ const MoviePage = () => {
 	}
 	return (
 		<MainTemplate>
-			<Box mt='90px'>
-				<Typography>{movie.title}</Typography>
-			</Box>
+			<Container sx={{p:'70px'}}>
+				<Typography>123123</Typography>
+			</Container>
 		</MainTemplate>
 	)
 }

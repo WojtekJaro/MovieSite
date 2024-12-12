@@ -1,12 +1,14 @@
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import React from 'react'
 import MainTemplate from '../template/MainTemplate'
 
 const SerialPage = () => {
 	return (
 		<MainTemplate>
-			<Box mt='90px'> <h1>Seriale</h1> </Box>
-		</MainTemplate>
+		<Container sx={{pt:'70px'}}>
+			<h1>Seriale</h1>{' '}
+		</Container>
+	</MainTemplate>
 	)
 }
 

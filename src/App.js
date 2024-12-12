@@ -1,16 +1,17 @@
 import React from 'react'
 
 import HomePage from './pages/HomePage'
-import MoviePage from './pages/MoviePage'
+import MoviesPage from './pages/MoviesPage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SerialPage from './pages/SerialPage'
 import ActorsPage from './pages/ActorsPage'
+import MoviePage from './pages/MoviePage'
 const App = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<HomePage />} />
-				<Route path='/MoviePage' element={<MoviePage />} />
+				<Route path='/MoviesPage' element={<MoviesPage />} />
 				<Route path='/SerialPage' element={<SerialPage />} />
 				<Route path='/ActorsPage' element={<ActorsPage />} />
 				<Route path="/movie/:url" element={<MoviePage/>}/>
